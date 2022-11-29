@@ -1,0 +1,26 @@
+Problem Statement
+Newton has a sequence of N words. He wants to make sure that all the words after the first word follow a specific pattern i. e. they should start with letter same as the previous word ending letter and they should not have occurred before.
+
+You are given all the words, tell whether they follow the pattern set by Newton or not. Print "Yes" if they follow, otherwise print "No"
+
+N = int(input())
+stack = []
+
+for i in range(N):
+    s = str(input())
+    if len(stack) > 0:
+        if s not in stack:
+            w = stack[-1]
+            if w[-1] == s[0]:
+                stack.append(s)
+            else:
+                break
+        else:
+            break
+    else:
+        stack.append(s)
+
+if len(stack) == N:
+    print("Yes")
+else:
+    print("No")
